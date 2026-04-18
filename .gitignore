@@ -13,7 +13,6 @@ build
 
 # Node.js
 dist/
-uploads/
 *.log
 
 # Environment variables
