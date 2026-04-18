@@ -19,7 +19,7 @@ DeshKhoj is built using a modern, scalable full-stack JavaScript architecture:
 ## 📂 Project Structure
 
 *   `/frontend` - Contains the entire Next.js application (User Interface, Forms, Search).
-*   `/backend` - Contains the Node.js API (Authentication, Database Queries, File Uploads).
+*   `/nodejs` - Contains the Node.js API (Authentication, Database Queries, File Uploads).
 *   `setup_mysql.sql` - The complete database schema and initial table structure.
 *   `fix_production_mysql.sql` - The latest database alterations (adds necessary columns for the forms).
 
@@ -43,13 +43,13 @@ Follow these steps to run the project on your local machine for development or t
 ### 2. Backend Setup
 1. Open your terminal and navigate to the backend folder:
    ```bash
-   cd backend
+   cd nodejs
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Create a `.env` file in the `backend` folder with the following credentials:
+3. Create a `.env` file in the `nodejs` folder with the following credentials:
    ```env
    PORT=5000
    DB_HOST=localhost
@@ -104,7 +104,7 @@ The backend is hosted on Hostinger using their Node.js environment (Phusion Pass
 
 **Step 1: Build the Code**
 You must compile the TypeScript code into JavaScript before uploading.
-1. Run this command locally inside the `backend` folder:
+1. Run this command locally inside the `nodejs` folder:
    ```bash
    npm run build
    ```
@@ -130,7 +130,7 @@ Hostinger's Node.js runs constantly in the background. To force it to load your 
 If you want to add new features or modify existing ones:
 
 1. Always test changes locally first by running both the frontend and backend simultaneously.
-2. If you change a database query in the backend (`backend/src/routes/`), make sure your live Hostinger database has the exact same columns.
+2. If you change a database query in the backend (`nodejs/src/routes/`), make sure your live Hostinger database has the exact same columns.
 3. If you add new pages to the frontend (`frontend/src/app/`), simply commit and push them to GitHub. Vercel will handle the rest!
 
 Enjoy building with DeshKhoj!
