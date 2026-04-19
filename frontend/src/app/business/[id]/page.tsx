@@ -8,7 +8,7 @@ import {
   MessageSquare, ChevronRight,
   Info, ShoppingBag
 } from "lucide-react";
-import { api, API_BASE, type Business } from "@/lib/api";
+import { api, API_URL, API_BASE, type Business } from "@/lib/api";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import InquiryModal from "@/components/InquiryModal";
@@ -98,7 +98,7 @@ export default function BusinessDetail() {
                 <div className="space-y-4">
                   <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center relative border border-card-border overflow-hidden">
                     {biz.main_photo ? (
-                       <img src={`${API_BASE}/uploads/${biz.main_photo}`} alt={biz.dukaan_name} className="h-full w-full object-cover" />
+                       <img src={`${API_URL}/uploads/${biz.main_photo}`} alt={biz.dukaan_name} className="h-full w-full object-cover" />
                     ) : (
                        <span className="text-6xl font-black text-primary/10">{biz.dukaan_name.charAt(0).toUpperCase()}</span>
                     )}

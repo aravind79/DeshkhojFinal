@@ -21,7 +21,7 @@ import {
   Search,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { api, API_BASE, type Business } from "@/lib/api";
+import { api, API_URL, API_BASE, type Business } from "@/lib/api";
 
 interface Stats {
   businesses: number;
@@ -409,7 +409,7 @@ export default function AdminDashboard() {
                     <label className="block text-[10px] font-bold uppercase text-foreground/40 mb-2">Listing Image</label>
                     <label className="relative flex aspect-square w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-card-border bg-background transition hover:border-primary">
                       {editItem.main_photo ? (
-                        <img src={`${API_BASE}/uploads/${editItem.main_photo}`} className="h-full w-full object-cover" />
+                        <img src={`${API_URL}/uploads/${editItem.main_photo}`} className="h-full w-full object-cover" />
                       ) : (
                         <Camera className="h-8 w-8 text-foreground/20" />
                       )}
@@ -497,7 +497,7 @@ export default function AdminDashboard() {
                   <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
                      {editItem.gallery?.split(',').filter(Boolean).map((img: string, idx: number) => (
                        <div key={idx} className="relative aspect-square rounded-xl border border-card-border bg-background overflow-hidden group">
-                         <img src={`${API_BASE}/uploads/${img}`} className="h-full w-full object-cover" />
+                         <img src={`${API_URL}/uploads/${img}`} className="h-full w-full object-cover" />
                          <button 
                           type="button"
                           onClick={() => {
@@ -616,7 +616,7 @@ function BusinessRow({ item, onApprove, onEdit, onDelete, isPending }: any) {
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-xl bg-card-border/30 flex items-center justify-center overflow-hidden">
              {item.main_photo ? (
-               <img src={`${API_BASE}/uploads/${item.main_photo}`} className="h-full w-full object-cover" />
+               <img src={`${API_URL}/uploads/${item.main_photo}`} className="h-full w-full object-cover" />
              ) : (
                <Building2 className="h-6 w-6 text-foreground/20" />
              )}

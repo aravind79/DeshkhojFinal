@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense, useEffect, useState, useCallback } from "react";
 import { MapPin, Star, Phone, Search, SlidersHorizontal, CheckCircle2 } from "lucide-react";
-import { api, API_BASE, type Business } from "@/lib/api";
+import { api, API_URL, API_BASE, type Business } from "@/lib/api";
 import InquiryModal from "@/components/InquiryModal";
 
 interface LocationOption { id: number; name: string }
@@ -206,7 +206,7 @@ function SearchResults() {
                   <div className="h-44 w-full sm:w-56 flex-shrink-0 rounded-xl bg-card-border/30 overflow-hidden relative">
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10 group-hover:scale-105 transition-transform duration-500">
                       {biz.main_photo ? (
-                        <img src={`${API_BASE}/uploads/${biz.main_photo}`} alt={biz.dukaan_name} className="h-full w-full object-cover" />
+                        <img src={`${API_URL}/uploads/${biz.main_photo}`} alt={biz.dukaan_name} className="h-full w-full object-cover" />
                       ) : (
                         <span className="text-4xl font-black text-primary/20">{biz.dukaan_name.charAt(0).toUpperCase()}</span>
                       )}

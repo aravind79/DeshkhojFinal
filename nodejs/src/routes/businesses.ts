@@ -85,8 +85,8 @@ router.get('/', async (req: Request, res: Response) => {
 
     const offset = (parseInt(page as string) - 1) * parseInt(limit as string);
 
-    // PUBLIC SEARCH: Show all businesses
-    const conditions: string[] = [];
+    // PUBLIC SEARCH: Show all active businesses
+    const conditions: string[] = ["d.status = 'active'"];
     const params: any[] = [];
     let paramIndex = 1;
 

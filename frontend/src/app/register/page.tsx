@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CopyCheck, ArrowRight, ArrowLeft, Loader2, Camera, Upload, Trash2, Plus } from "lucide-react";
-import { api, API_BASE } from "@/lib/api";
+import { api, API_URL, API_BASE } from "@/lib/api";
 
 interface LocationOption { id: number; name: string }
 
@@ -401,7 +401,7 @@ export default function RegisterPage() {
                       <div className="md:col-span-1 text-center">
                         <p className="text-[10px] font-bold text-foreground/40 uppercase mb-2">Main Photo</p>
                         <label className="relative flex aspect-square w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-card-border bg-background hover:border-primary transition-all">
-                          {form.main_photo ? <img src={`${API_BASE}/uploads/${form.main_photo}`} className="h-full w-full object-cover" /> : <Camera className="h-8 w-8 text-foreground/20" />}
+                          {form.main_photo ? <img src={`${API_URL}/uploads/${form.main_photo}`} className="h-full w-full object-cover" /> : <Camera className="h-8 w-8 text-foreground/20" />}
                           <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, false)} />
                         </label>
                       </div>
@@ -410,7 +410,7 @@ export default function RegisterPage() {
                         <div className="grid grid-cols-3 gap-2">
                           {galleryPreviews.slice(0, 5).map((img, i) => (
                             <div key={i} className="aspect-square rounded-xl border border-card-border bg-background overflow-hidden">
-                              <img src={`${API_BASE}/uploads/${img}`} className="h-full w-full object-cover" />
+                              <img src={`${API_URL}/uploads/${img}`} className="h-full w-full object-cover" />
                             </div>
                           ))}
                           <label className="aspect-square flex cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-card-border bg-background hover:border-primary transition-all">
@@ -535,7 +535,7 @@ export default function RegisterPage() {
                         </div>
                         <label className="relative flex h-12 w-full cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed border-card-border bg-background px-3 transition hover:border-primary">
                            <div className="h-8 w-8 rounded-lg overflow-hidden flex items-center justify-center bg-card-border/30">
-                              {prod.image ? <img src={`${API_BASE}/uploads/${prod.image}`} className="h-full w-full object-cover" /> : <Camera className="h-4 w-4 text-foreground/20" />}
+                              {prod.image ? <img src={`${API_URL}/uploads/${prod.image}`} className="h-full w-full object-cover" /> : <Camera className="h-4 w-4 text-foreground/20" />}
                            </div>
                            <span className="text-[10px] font-black uppercase tracking-tighter text-primary">{prod.image ? 'CHANGE PHOTO' : `SELECT PRODUCT ${idx + 1} PHOTO →`}</span>
                            <input type="file" className="hidden" accept="image/*" onChange={async (e) => {
